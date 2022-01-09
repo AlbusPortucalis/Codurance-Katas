@@ -48,7 +48,7 @@ class Rover {
     */
     boolean moveRover(){
         int[] actualRoverPosition = getRoverPosition();
-        int[] newRoverPosition = actualRoverPosition;
+        int[] newRoverPosition = {0,0};
         String roverFacedDirection = getRoverFacedDirection();
         int transverseIndexPosition = actualRoverPosition[0];
         int longitudinalIndexPosition = actualRoverPosition[1];
@@ -89,6 +89,14 @@ class Rover {
         return true;
     }
 
+    //Returns the formated String needed to present the finishing point
+    String getRoverPositionAndDirection(){
+        int[] roverPosition = getRoverPosition();
+        String roverFacedDirection = getRoverFacedDirection();
+
+        return roverPosition[0] + ":" + roverPosition[1] + ":" + roverFacedDirection.charAt(0);
+    }
+
     /*Returns a int Array with the indexes of the rover position on the grid
       {x,y} where x is the transverse axis (West to East) and y the longitudinal axis (South to North)*/
     private int[] getRoverPosition(){
@@ -96,10 +104,10 @@ class Rover {
 
         for(int i = 0; i < roverPositionOnTheGrid.length; i++){
             for(int j = 0; j < roverPositionOnTheGrid[i].length; j++){
-                if (roverPositionOnTheGrid[0][j] == 1) {
+                if (i == 0 && roverPositionOnTheGrid[i][j] == 1) {
                     roverPosition[0] = j;
                     break;
-                } else if(roverPositionOnTheGrid[1][j] == 1){
+                } else if(i == 1 && roverPositionOnTheGrid[i][j] == 1){
                     roverPosition[1] = j;
                     break;
                 }
@@ -108,6 +116,8 @@ class Rover {
 
         return roverPosition;
     }
+
+
 
     //Returns the direction the rover is facing
     private String getRoverFacedDirection(){
