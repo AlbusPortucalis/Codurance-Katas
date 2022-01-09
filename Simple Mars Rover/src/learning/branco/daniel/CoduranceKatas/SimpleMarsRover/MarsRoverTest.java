@@ -27,7 +27,9 @@ class MarsRoverTest {
 
     static Stream<Arguments> roverCommandsProvider(){
         return Stream.of(
-                arguments("2:1:N", marsRover.execute("RMMLM"))
+                arguments("2:1:N", marsRover.execute("RMMLM")),
+                arguments("2:3:N", marsRover.execute("MMRMMLM")),
+                arguments("0:0:N", marsRover.execute(" MMMMMMMMMM"))
         );
     }
 }

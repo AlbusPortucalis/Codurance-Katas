@@ -25,12 +25,12 @@ class Rover {
     until a new valid direction is supplied
     */
     boolean moveRover(){
-
+        return false;
     }
 
     //Returns a int Array with the rover position on the grid
     private int[] getRoverPosition(){
-
+        return new int[2];
     }
 
     //Returns the direction the rover is facing
@@ -50,7 +50,7 @@ class Rover {
                 return "East";
             case 2:
                 return "South";
-            case 3:
+            default:
                 return "West";
         }
     }
