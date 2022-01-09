@@ -15,8 +15,31 @@ class Rover {
      */
     private int[][] roverPositionOnTheGrid = {{1,0,0,0,0,0,0,0,0,0},{1,0,0,0,0,0,0,0,0,0}};
 
-    //Method that rotates the rover, can receive two directions Left or Right
+    //Method that rotates the rover, can receive two directions "Rotate Left" or "Rotate Right"
     void rotateRover(String direction){
+
+        for(int i = 0; i < 4; i++){
+            if(roverFacedDirection[i] == 1 && direction.equals("Rotate Left")){
+                roverFacedDirection[i] = 0;
+                if(i - 1 >= 0){
+                    roverFacedDirection[i - 1] = 1;
+                    break;
+                } else {
+                    roverFacedDirection[roverFacedDirection.length - 1] = 1;
+                    break;
+                }
+            } else if(roverFacedDirection[i] == 1 && direction.equals("Rotate Right")){
+                roverFacedDirection[i] = 0;
+                if(i + 1 >= roverFacedDirection.length){
+                    roverFacedDirection[0] = 1;
+                    break;
+                } else {
+                    roverFacedDirection[i + 1] = 1;
+                    break;
+                }
+            }
+        }
+
 
     }
 
