@@ -21,14 +21,53 @@ class Rover {
     }
 
     /*Method that moves the rover
-    if it reaches the end of grid it must ignore the move commands
-    until a new valid direction is supplied
+    if it reaches the end of grid it must wrap around
     */
     boolean moveRover(){
-        return false;
+        int[] actualRoverPosition = getRoverPosition();
+        int[] newRoverPosition = actualRoverPosition;
+        String roverFacedDirection = getRoverFacedDirection();
+        int transverseIndexPosition = actualRoverPosition[0];
+        int longitudinalIndexPosition = actualRoverPosition[1];
+
+        switch (roverFacedDirection){
+            case "North":
+                longitudinalIndexPosition += 1;
+                break;
+            case "East":
+                transverseIndexPosition += 1;
+                break;
+            case "South":
+                longitudinalIndexPosition -= 1;
+                break;
+            case "West":
+                transverseIndexPosition -= 1;
+                break;
+            default:
+                return false;
+        }
+
+        //Checks and updates the rover position if it needs to wrap-around
+        if(transverseIndexPosition >= roverPositionOnTheGrid[0].length){
+            transverseIndexPosition = 0;
+        } else if (transverseIndexPosition < 0){
+            transverseIndexPosition = roverPositionOnTheGrid[0].length - 1;
+        } else if (longitudinalIndexPosition >= roverPositionOnTheGrid[1].length){
+            longitudinalIndexPosition = 0;
+        } else if (longitudinalIndexPosition < 0){
+            longitudinalIndexPosition = roverPositionOnTheGrid[1].length - 1;
+        }
+
+        newRoverPosition[0] = transverseIndexPosition;
+        newRoverPosition[1] = longitudinalIndexPosition;
+
+        setRoverPositionOnTheGrid(actualRoverPosition, newRoverPosition);
+
+        return true;
     }
 
-    //Returns a int Array with the indexes of the rover position on the grid
+    /*Returns a int Array with the indexes of the rover position on the grid
+      {x,y} where x is the transverse axis (West to East) and y the longitudinal axis (South to North)*/
     private int[] getRoverPosition(){
         int[] roverPosition = {0,0};
 
@@ -37,7 +76,7 @@ class Rover {
                 if (roverPositionOnTheGrid[0][j] == 1) {
                     roverPosition[0] = j;
                     break;
-                } else if(roverPositionOnTheGrid[1][j]){
+                } else if(roverPositionOnTheGrid[1][j] == 1){
                     roverPosition[1] = j;
                     break;
                 }
@@ -59,13 +98,23 @@ class Rover {
 
         switch (indexDirectionFaced){
             case 0:
-                return "north";
+                return "North";
             case 1:
                 return "East";
             case 2:
                 return "South";
-            default:
+            case 3:
                 return "West";
+            default:
+                return "Unknown";
         }
+    }
+
+    private void setRoverPositionOnTheGrid(int[] oldPosition, int[] newPosition){
+        roverPositionOnTheGrid[0][oldPosition[0]] = 0;
+        roverPositionOnTheGrid[0][newPosition[0]] = 1;
+        roverPositionOnTheGrid[1][oldPosition[1]] = 0;
+        roverPositionOnTheGrid[1][newPosition[1]] = 1;
+
     }
 }
