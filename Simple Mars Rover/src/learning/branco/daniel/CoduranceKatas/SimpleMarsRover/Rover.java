@@ -28,9 +28,23 @@ class Rover {
         return false;
     }
 
-    //Returns a int Array with the rover position on the grid
+    //Returns a int Array with the indexes of the rover position on the grid
     private int[] getRoverPosition(){
-        return new int[2];
+        int[] roverPosition = {0,0};
+
+        for(int i = 0; i < roverPositionOnTheGrid.length; i++){
+            for(int j = 0; j < roverPositionOnTheGrid[i].length; j++){
+                if (roverPositionOnTheGrid[0][j] == 1) {
+                    roverPosition[0] = j;
+                    break;
+                } else if(roverPositionOnTheGrid[1][j]){
+                    roverPosition[1] = j;
+                    break;
+                }
+            }
+        }
+
+        return roverPosition;
     }
 
     //Returns the direction the rover is facing
