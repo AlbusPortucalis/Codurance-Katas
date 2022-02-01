@@ -1,26 +1,20 @@
 package learning.branco.daniel.CoduranceKatas.FizzBuzz;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FizzBuzzShould {
 
-    @Test
-    void convert_1_to_1(){
-
-        assertEquals("1", new FizzBuzz().convert(1));
+    @ParameterizedTest
+    @CsvSource({"1,1", "2,2", "4,4"})
+    void convert_numbers_to_FizzBuzz_String(int numberInput, String expectedOutput){
+        assertEquals(expectedOutput, new FizzBuzz().convert(numberInput));
     }
 
-    @Test
-    void convert_2_to_2(){
-        assertEquals("2", new FizzBuzz().convert(2));
-    }
-
-    @Test
-    void convert_4_to_4(){
-        assertEquals("4", new FizzBuzz().convert(4));
-    }
+    
 
 
 
