@@ -27,5 +27,11 @@ public class FizzBuzzShould {
         assertEquals("Buzz", new FizzBuzz().convert(numberInput));
     }
 
+    @ParameterizedTest
+    @ValueSource(ints = {15, 30, 45})
+    void convert_multiples_of_3_and_5_to_FizzBuzz(int numberInput){
+        assertEquals("FizzBuzz", new FizzBuzz().convert(numberInput));
+    }
+
 
 }
