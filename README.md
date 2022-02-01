@@ -7,3 +7,5 @@ If you want to give a shot to solve the same katas they can be found on [The Cod
 Time to develop solutions:
  - Simple Mars Rover:
    - 1st Working iteration ~5 hours, not proud...;
+ - FizzBuzz:
+   - 1st Working iteration ~2.5 hours. Taking to much time to create the project(~1h), the other time was used to absorb all the instructions. The challenge had no difficulty.
