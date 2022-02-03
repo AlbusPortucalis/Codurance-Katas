@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LeapYearShould {
 
     @ParameterizedTest
-    @CsvSource({"1997, false"})
+    @CsvSource({"1997, false", "1996, true"})
     void is_year_leap(int inputYear, boolean expectedOutput){
         assertEquals(expectedOutput, new LeapYear().isLeapYear(inputYear));
     }
