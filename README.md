@@ -9,3 +9,5 @@ Time to develop solutions:
    - 1st Working iteration ~5 hours, not proud...;
  - FizzBuzz:
    - 1st Working iteration ~2.5 hours. Taking to much time to create the project(~1h), the other time was used to absorb all the instructions. The challenge had no difficulty.
+ - Leap Year:
+   - 1st Working iteration ~45 minutes. Trying to absorb all the TDD rules.
