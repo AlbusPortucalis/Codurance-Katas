@@ -4,7 +4,8 @@ public class RomanNumeralsGenerator {
     private String[] romanNumerals = {
             "I",
             "IV",
-            "V"
+            "V",
+            "VI"
     };
 
     public String convert(int amount){
@@ -18,6 +19,10 @@ public class RomanNumeralsGenerator {
         }
         if(amount == 5){
             return  romanNumerals[2];
+        }
+
+        if(amount == 6){
+            return romanNumerals[3];
         }
         return romanNumerals[0];
     }
