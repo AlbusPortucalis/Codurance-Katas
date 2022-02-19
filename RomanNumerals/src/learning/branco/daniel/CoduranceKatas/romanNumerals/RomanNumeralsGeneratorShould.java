@@ -9,9 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RomanNumeralsGeneratorShould {
 
     @Test
-    void generator_returns_I_when_receives_1(){
+    void convert_1_to_I(){
         assertEquals("I", new RomanNumeralsGenerator().convert(1));
 
     }
 
+    @Test
+    void convert_2_to_II() {
+        assertEquals("II", new RomanNumeralsGenerator().convert(2));
+    }
 }
