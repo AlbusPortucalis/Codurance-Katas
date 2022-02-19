@@ -16,5 +16,5 @@ public class RomanNumeralsGeneratorShould {
         assertEquals(expectedRomanNumeral, new RomanNumeralsGenerator().convert(arabicNumber));
 
     }
-     
+
 }
