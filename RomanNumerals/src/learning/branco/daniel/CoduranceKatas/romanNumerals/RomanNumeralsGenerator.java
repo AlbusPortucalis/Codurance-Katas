@@ -1,16 +1,24 @@
 package learning.branco.daniel.CoduranceKatas.romanNumerals;
 
 public class RomanNumeralsGenerator {
-    private String unitsRomanNumeral = "I";
-    private String fourthRomanNumeral = "IV";
+    private String[] romanNumerals = {
+            "I",
+            "IV",
+            "V"
+    };
+
     public String convert(int amount){
-        if(amount == 2){
-            return unitsRomanNumeral.repeat(2);
-        } else if (amount == 3){
-            return unitsRomanNumeral.repeat(3);
-        } else if(amount == 4){
-            return fourthRomanNumeral;
+        if(amount < 4 && amount > 1){
+
+            return romanNumerals[0] + convert(amount - 1);
         }
-        return unitsRomanNumeral;
+
+        if(amount == 4){
+            return romanNumerals[1];
+        }
+        if(amount == 5){
+            return  romanNumerals[2];
+        }
+        return romanNumerals[0];
     }
 }
