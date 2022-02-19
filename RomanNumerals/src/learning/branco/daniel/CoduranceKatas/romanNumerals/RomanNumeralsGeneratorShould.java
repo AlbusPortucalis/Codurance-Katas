@@ -18,4 +18,9 @@ public class RomanNumeralsGeneratorShould {
     void convert_2_to_II() {
         assertEquals("II", new RomanNumeralsGenerator().convert(2));
     }
+
+    @Test
+    void convert_3_to_III() {
+        assertEquals("III", new RomanNumeralsGenerator().convert(3));
+    }
 }
