@@ -22,7 +22,7 @@ public class RomanNumeralsGenerator {
         if(romanNumerals.containsKey(amount)){
             return romanNumerals.get(amount);
         }
-        if(amount < romanNumerals.lastKey() && amount > 3){
+        if(amount > 3){
             return romanNumerals.get(romanNumerals.lowerKey(amount)) +
                     convert(amount - romanNumerals.lowerKey(amount));
         }
