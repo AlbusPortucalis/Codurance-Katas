@@ -9,7 +9,8 @@ public class RomanNumeralsGenerator {
     private TreeMap<Integer, String> romanNumerals = new TreeMap<>(Map.ofEntries(
             Map.entry(1, "I"),
             Map.entry(4, "IV"),
-            Map.entry(5, "V")
+            Map.entry(5, "V"),
+            Map.entry(9,"IX")
     ));
 
     public String convert(int amount){
@@ -20,9 +21,9 @@ public class RomanNumeralsGenerator {
         if(romanNumerals.containsKey(amount)){
             return romanNumerals.get(amount);
         }
-        if(romanNumerals.lastKey() < amount){
-            return romanNumerals.lastEntry().getValue() +
-                    convert(amount - romanNumerals.lastKey());
+        if(amount < romanNumerals.lastKey() && amount > 3){
+            return romanNumerals.get(romanNumerals.lowerKey(amount)) +
+                    convert(amount - romanNumerals.lowerKey(amount));
         }
 
 
