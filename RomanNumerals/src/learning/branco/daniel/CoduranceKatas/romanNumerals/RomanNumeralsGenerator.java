@@ -8,11 +8,11 @@ import java.util.TreeMap;
 public class RomanNumeralsGenerator {
     private TreeMap<Integer, String> romanNumerals = new TreeMap<>(Map.ofEntries(
             Map.entry(1, "I"),
-            Map.entry(4, "IV"),
+            Map.entry(4,"IV"),
             Map.entry(5, "V"),
             Map.entry(9,"IX"),
             Map.entry(10, "X"),
-            Map.entry(40, "XL"),
+            Map.entry(40,"XL"),
             Map.entry(50, "L")
     ));
 
@@ -28,7 +28,6 @@ public class RomanNumeralsGenerator {
             return romanNumerals.get(romanNumerals.lowerKey(amount)) +
                     convert(amount - romanNumerals.lowerKey(amount));
         }
-
 
         return "";
     }
