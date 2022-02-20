@@ -9,19 +9,20 @@ public class RomanNumeralsGenerator {
             Map.entry(1, "I"),
             Map.entry(4, "IV"),
             Map.entry(5, "V"),
-            Map.entry(6, "VI")
+            Map.entry(6, "VI"),
+            Map.entry(7,"VII")
     );
 
     public String convert(int amount){
         if(romanNumerals.containsKey(amount)){
             return romanNumerals.get(amount);
         }
-        if(amount < 4 && amount > 1){
+        if(amount < 4 && amount > 0){
 
             return romanNumerals.get(1) + convert(amount - 1);
         }
 
 
-        return romanNumerals.get(1);
+        return "";
     }
 }
