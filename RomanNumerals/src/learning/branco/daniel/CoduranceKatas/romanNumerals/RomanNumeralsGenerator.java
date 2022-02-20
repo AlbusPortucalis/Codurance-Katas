@@ -13,7 +13,8 @@ public class RomanNumeralsGenerator {
             Map.entry(9,"IX"),
             Map.entry(10, "X"),
             Map.entry(40,"XL"),
-            Map.entry(50, "L")
+            Map.entry(50, "L"),
+            Map.entry(90, "XC")
     ));
 
     public String convert(int amount){
