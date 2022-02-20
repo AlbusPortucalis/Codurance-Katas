@@ -11,7 +11,8 @@ public class RomanNumeralsGenerator {
             Map.entry(4, "IV"),
             Map.entry(5, "V"),
             Map.entry(9,"IX"),
-            Map.entry(10, "X")
+            Map.entry(10, "X"),
+            Map.entry(40, "XL")
     ));
 
     public String convert(int amount){
